@@ -94,7 +94,7 @@ noBtn.addEventListener("click", () => {
 yesBtn.addEventListener("click", () => {
     title.textContent = "Yippeeee!";
 
-    catImg.src = "cat_dance.gif";
+    catImg.src = "tumblr_mb4nzllTyp1qzqnxxo1_2501-ezgif.com-webp-to-gif-converter.gif";
 
     document.querySelector(".letter-window").classList.add("final");
 
