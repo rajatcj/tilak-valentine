@@ -80,20 +80,20 @@ p {
 /* Cat */
 
 .cat {
-    width: 150px;
+    width: 100px;
     margin: 10px 0;
     transition: width 0.4s ease;
 }
 
 .letter-window.final .cat {
-    width: 120px;
+    width: 80px;
 }
 
 /* buttons */
 .buttons {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 20px;
     position: relative;
 }
 
@@ -102,14 +102,14 @@ p {
 }
 
 .btn {
-    width: 80px;
+    width: 40px;
     cursor: pointer;
     user-select: none;
 }
 
 .yes-btn,
 .no-btn {
-width: 180px;
+width: 40px;
 height: auto;
 display: inline-block;
 }
