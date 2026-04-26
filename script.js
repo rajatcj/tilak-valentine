@@ -22,37 +22,43 @@ envelope.addEventListener("click", () => {
 
 // Logic to move the NO btn
 
+let currentX = 0;
+let currentY = 0;
+
 function moveButton() {
     const btn = noBtn;
 
-    const padding = 20; // keep some margin from edges
-
     const btnRect = btn.getBoundingClientRect();
-    const btnWidth = btnRect.width;
-    const btnHeight = btnRect.height;
 
-    const maxX = window.innerWidth - btnWidth - padding;
-    const maxY = window.innerHeight - btnHeight - padding;
+    const padding = 20;
+
+    const maxX = window.innerWidth - btnRect.width - padding;
+    const maxY = window.innerHeight - btnRect.height - padding;
 
     const minX = padding;
     const minY = padding;
 
-    const randomX = Math.random() * (maxX - minX) + minX;
-    const randomY = Math.random() * (maxY - minY) + minY;
+    // Target position (absolute screen)
+    const targetX = Math.random() * (maxX - minX) + minX;
+    const targetY = Math.random() * (maxY - minY) + minY;
 
-    btn.style.position = "fixed"; // important for viewport positioning
-    btn.style.left = `${randomX}px`;
-    btn.style.top = `${randomY}px`;
+    // Convert to relative movement (delta)
+    const deltaX = targetX - btnRect.left;
+    const deltaY = targetY - btnRect.top;
 
-    btn.style.transition = "all 0.3s ease";
+    currentX += deltaX;
+    currentY += deltaY;
+
+    btn.style.transition = "transform 0.3s ease";
+    btn.style.transform = `translate(${currentX}px, ${currentY}px)`;
 }
 
-// Desktop hover
+// Desktop
 noBtn.addEventListener("mouseover", moveButton);
 
-// Mobile touch
+// Mobile
 noBtn.addEventListener("touchstart", (e) => {
-    e.preventDefault(); // prevent accidental click
+    e.preventDefault();
     moveButton();
 });
 
